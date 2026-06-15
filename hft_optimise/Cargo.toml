@@ -3,12 +3,14 @@ name = "hft_optimise"
 version = "0.1.0"
 edition = "2024"
 
-# [profile.release]
-# opt-level = 3            # Enable maximum level code optimization loops
-# lto = "fat"              # Link-Time Optimization across all dependency layers
-# codegen-units = 1        # Reduces parallelism during codegen to maximize global optimizations
-# panic = "abort"          # Eliminates unneeded stack-unwinding code metadata payload sizes
+[profile.release]
+opt-level = 3            # Enable maximum level code optimization loops
+lto = "fat"              # Link-Time Optimization across all dependency layers
+codegen-units = 1        # Reduces parallelism during codegen to maximize global optimizations
+panic = "abort"          # Eliminates unneeded stack-unwinding code metadata payload sizes
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+core_affinity = "0.8"
+libc = "0.2"
